@@ -8,6 +8,7 @@ public class StartSelenium {
 
     @Test
     public void test(){
+        System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
         wd = new ChromeDriver();
         // wd.get("https://telranedu.web.app/");
         wd.navigate().to("https://telranedu.web.app/");
