@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,7 +17,14 @@ public class Index {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
         wd=new ChromeDriver();
-        wd.get("file:///C:/Users/vsibi/Downloads/21.index%20(1).html");
+        wd.get("file:///C:/Users/vsibi/Downloads/21.index.html");
+    }
+
+    @Test
+    public void tableTest(){
+        WebElement canada = wd.findElement(By.cssSelector("tr:nth-child(3) td:last-child"));
+        Assert.assertEquals(canada.getText(), "Canada");
+
     }
 
 
@@ -51,7 +59,7 @@ public class Index {
         WebElement element5 = wd.findElement(By.tagName("ul"));
         WebElement element6 = wd.findElement(By.tagName("li"));
         List<WebElement> list9 = wd.findElements(By.tagName("li"));
-        WebElement element7 = wd.findElement(By.tagName("from"));
+        WebElement element7 = wd.findElement(By.tagName("form"));
         WebElement element8 = wd.findElement(By.tagName("input"));
         WebElement element9 = wd.findElement(By.tagName("p"));
 
