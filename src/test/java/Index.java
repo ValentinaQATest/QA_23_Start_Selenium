@@ -15,7 +15,7 @@ public class Index {
 
     @BeforeClass
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
+       System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
         wd=new ChromeDriver();
         wd.get("file:///C:/Users/vsibi/Downloads/21.index.html");
     }

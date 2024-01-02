@@ -7,13 +7,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class HomeWork {
 
         WebDriver wd;
 
         @BeforeClass
         public void setUp(){
-           // System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
+           System.setProperty("webdriver.chrome.driver","C:\\Tools\\chromedriver.exe");
             wd = new ChromeDriver();
             wd.get("https://telranedu.web.app/login");
         }
@@ -80,10 +82,44 @@ public class HomeWork {
             WebElement nam3 = wd.findElement(By.cssSelector("[name *= 'ogi']"));
             WebElement namX3 = wd.findElement(By.xpath("//*[contains(@name,'ogi')]"));
 
+
+
+
         }
 
+        @Test
+    public void classwork(){
+            //parent
+            WebElement el =wd.findElement(By.xpath("//h1/parent::*"));
+            WebElement el1 =wd.findElement(By.xpath("//h1/parent::div"));
+            WebElement el2 =wd.findElement(By.xpath("//h1/.."));
 
-        
+            //ancestor
+            WebElement el3 = wd.findElement(By.xpath("//h1/ancestor::*"));//all
+            WebElement el4 = wd.findElement(By.xpath("//h1/ancestor::div"));//two options
+            WebElement el5 = wd.findElement(By.xpath("//h1/ancestor::div[2]"));//one option
+
+            //ancestor or self (plus one more)
+            WebElement el6 = wd.findElement(By.xpath("//h1/ancestor-or-self::*"));
+            List<WebElement>list =wd.findElements(By.xpath("//h1/ancestor-or-self::*"));
+
+            //following-sibling
+            List<WebElement>list1 = wd.findElements(By.xpath("//h1/following-sibling::a"));
+
+            //preceding-sibling
+            WebElement el7 = wd.findElement(By.xpath("//a[last()]/preceding-sibling::h1"));
+            List<WebElement>list2 = wd.findElements(By.xpath("//a[last()]/preceding-sibling::a"));
+
+
+
+
+
+        }
+
+    @AfterClass
+    public void stop() {
+        wd.close();
+    }
 
     }
 
